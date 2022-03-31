@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Fetch from "./fetch";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import SearchExercise from "./Components/SearchExercises";
+import AddExercise from "./Components/AddExercise";
+
+const redux = require("redux");
 
 function App() {
+  // const [state, setState] = useState([]);
+  // const [search, setSearch] = useState("");
+  // const [searchResult, setSearchResult] = useState([]);
+
+  // async function fetchFunction() {
+  //   try {
+  //     const response = await fetch(API);
+  //     const data = await response.json();
+  //     setState(data);
+  //   } catch (err) {
+  //     throw err;
+  //   }
+  // }
+  // store.dispatch({
+  //   type: "FETCH",
+  //   payload: state,
+  // });
+  // console.log(state);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <BrowserRouter>
+        <h1> app.js</h1>
+
+        <Routes>
+          {/* <Route path="/" element={ <Start />}></Route> */}
+          {/* <Route path="/search" element={<SearchExercise />}></Route> */}
+          {/* <Route path="/" element={<App />}></Route> */}
+          <Route path="/search" element={<Fetch />}></Route>
+          <Route path="/add" element={<AddExercise />}></Route>
+        </Routes>
+        {/* <Link to="/">home</Link> */}
+        <Link to="/search">sök</Link>
+        <Link to="/add">add</Link>
+      </BrowserRouter>
+    </main>
   );
 }
 
