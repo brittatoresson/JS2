@@ -1,7 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { saveWorkout, saveDate } from "../Actions/exerciseAction";
-import { render } from "react-dom";
-import { store } from "../index";
+import { saveWorkout } from "../Actions/exerciseAction";
 
 function SaveWorkout() {
   const dispatch = useDispatch();
@@ -11,8 +9,6 @@ function SaveWorkout() {
 
   function saveWorkoutFunction() {
     dispatch(saveWorkout(updateState, currentDate));
-    // dispatch(saveDate(currentDate));
-    console.log(updateState);
   }
 
   return (

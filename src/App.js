@@ -1,13 +1,10 @@
 import "./App.css";
-import Fetch from "./fetch";
+import FilterInput from "./Components/FilterInput.jsx";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import SearchExercise from "./Components/SearchExercises";
 import AddExercise from "./Components/AddExercise";
 import { store } from "./index";
 import Home from "./Pages/Home";
-
 import History from "./Pages/History";
 
 const redux = require("redux");
@@ -15,8 +12,6 @@ const redux = require("redux");
 function App() {
   const API = "http://localhost:6001/data.json";
   const [state, setState] = useState([]);
-  const [search, setSearch] = useState("");
-  const [filterResult, setFilterResult] = useState([]);
   async function fetchFunction() {
     try {
       const response = await fetch(API);
@@ -41,7 +36,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/search" element={<Fetch />}></Route>
+          <Route path="/search" element={<FilterInput />}></Route>
           <Route path="/add" element={<AddExercise />}></Route>
           <Route path="/history" element={<History />}></Route>
         </Routes>

@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 let initState = [
   {
     id: "1",
@@ -19,30 +17,27 @@ const exerciseReducer = (state = initState, action) => {
     case "ADD_EX":
       return [...state, action.payload];
       break;
-
-    //BEHÖVS DENNA??
-    case "COUNTER":
-      return [...state, { reps: action.payload }];
-      break;
-
     case "REMOVE_EX":
-      return action.payload;
-
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          console.log(item.id);
+          console.log(state);
+          // delete item.id;
+          // return [...state];
+        }
+      });
       break;
+    // case "REMOVE_EX":
+    //   return state.filter((item) => item.id !== action.payload.id);
+    // return action.payload;
+    //   break;
 
-    case "ADD_SET_REPS":
-      return action.type;
-      break;
     case "SAVE_WORKOUT":
       return action.payload;
       break;
     case "SAVE_EX":
       return action.payload;
       break;
-    case "SAVE_DATE":
-      return action.payload;
-      break;
-
     default:
       return state;
   }

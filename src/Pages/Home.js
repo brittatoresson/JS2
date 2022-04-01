@@ -1,5 +1,3 @@
-import Fetch from "../fetch";
-
 function Home() {
   return (
     <section id="home">

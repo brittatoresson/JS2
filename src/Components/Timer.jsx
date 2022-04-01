@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import SaveWorkout from "./SaveWorkout";
 
 function Timer(timedata) {
-  let finishMessage = "Done!";
+  console.log(timedata.time);
   let time = timedata.time * 60;
   let min = Math.floor(time / 60);
   let sec = time % 60;
 
   const [minutes, setMinutes] = useState(min);
   const [seconds, setSeconds] = useState(sec);
+  const [clicked, setClicked] = useState(false);
 
-  useEffect(() => {
+  if (clicked === true) {
     let countDown = setTimeout(() => {
       if (seconds > 0) {
         setSeconds((prev) => seconds - 1);
@@ -24,13 +25,20 @@ function Timer(timedata) {
         }
       }
     }, 1000);
-  }, [seconds]);
+  }
+
   return (
     <section id="timer">
       <div>{minutes + ":" + seconds}</div>
-      {seconds === 0 && minutes === 0
-        ? ((<p>{finishMessage}</p>), (<SaveWorkout />))
-        : null}
+      {seconds === 0 && minutes === 0 ? (
+        ((<p>Done!</p>), (<SaveWorkout />))
+      ) : (
+        <button onClick={() => setClicked(!clicked)}>
+          {!clicked ? "Go!" : "Stop"}
+        </button>
+      )}
+
+      {/* {clicked ? <Timer time={min.time} /> : null} */}
     </section>
   );
 }

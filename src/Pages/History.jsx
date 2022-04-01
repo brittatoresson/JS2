@@ -1,17 +1,26 @@
 import { useSelector, useDispatch } from "react-redux";
 
 function History() {
+  let date;
   const updateState = useSelector((state) => state);
-  let date = updateState.date.slice(0, updateState.date.length - 38);
+
+  //om updateStore innehåller data-properaty
+  if (updateState.date) {
+    date = updateState.date.slice(0, updateState.date.length - 38);
+  }
 
   return (
     <section>
       <h1>History</h1>
-      {updateState.workout.map((item, i) => (
-        <ul key={i}>
-          <li>{item.name}</li>
-        </ul>
-      ))}
+      {updateState.date ? (
+        updateState.workout.map((item, i) => (
+          <ul key={i}>
+            <li>{item.name}</li>
+          </ul>
+        ))
+      ) : (
+        <p>No history</p>
+      )}
       <p>{date}</p>
     </section>
   );
