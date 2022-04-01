@@ -5,9 +5,15 @@ export const addEx = (ex) => {
     id: 0,
   };
 };
-export const removeEx = () => {
+export const addSetReps = () => {
+  return {
+    type: "ADD_SET_REPS",
+  };
+};
+export const removeEx = (ex) => {
   return {
     type: "REMOVE_EX",
+    payload: ex,
   };
 };
 export const counter = (nr) => {
@@ -19,5 +25,23 @@ export const counter = (nr) => {
 export const fetchAction = () => {
   return {
     type: "FETCH",
+  };
+};
+export const saveWorkout = (saveWorkout, date) => {
+  return {
+    type: "SAVE_WORKOUT",
+    payload: { workout: saveWorkout, date: date },
+  };
+};
+export const saveEX = (saveEx) => {
+  return {
+    type: "SAVE_EX",
+    payload: saveEx,
+  };
+};
+export const saveDate = (date) => {
+  return {
+    type: "SAVE_DATE",
+    payload: date,
   };
 };
