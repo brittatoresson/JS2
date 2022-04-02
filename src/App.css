@@ -1,8 +1,46 @@
+:root {
+  --main-bg-color: #231f42;
+  --color-green: #37aeab;
+  --color-pink: #f56b9a;
+  --border: 1px solid var(--color-pink);
+}
+
+main {
+  background-color: rgb(245, 190, 89);
+  border: var(--border);
+  max-width: 480px;
+  max-height: 1200px;
+}
+li {
+  list-style: none;
+}
 #searchExercise {
   display: flex;
   flex-direction: column;
   place-items: center;
 }
+#searchExercise section {
+  display: flex;
+  flex-direction: column;
+}
+#searchExercise section li:hover {
+  padding: 0.5rem;
+  font-weight: bolder;
+}
 #searchExercise input {
-  width: 20vh;
+  width: 5vh;
+}
+#savedEx h4 {
+  margin: 0.5rem;
+  /* padding: 0; */
+}
+
+#addExercise {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+#addExercise input {
+  width: 20vw;
+  height: 5vh;
 }

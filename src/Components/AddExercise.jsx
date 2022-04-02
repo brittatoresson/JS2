@@ -1,45 +1,61 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { counter } from "../Actions/exerciseAction";
 import { store } from "../index";
+import Fetch from "../fetch";
 
 function AddExercise() {
   const [newEx, setNewEx] = useState([]);
-  const [weight, setWeight] = useState([]);
-  const [set, setSet] = useState([]);
-  const [reps, setReps] = useState([]);
-  const [count, setCount] = useState(0);
-  const dispatch = useDispatch();
-
+  const [equipment, setEquipment] = useState([]);
   const updateState = useSelector((state) => state);
   console.log(updateState);
 
   let id = updateState.length;
 
-  function handleChange(ex, weight, set, reps) {
+  function handleChange(ex, equipment) {
     if (ex) {
       setNewEx(ex);
     }
-    if (weight) {
-      setWeight(weight);
-    }
-    if (set) {
-      setSet(set);
-    }
-    if (reps) {
-      setReps(reps);
+    if (equipment) {
+      setEquipment(equipment);
     }
   }
 
   const submit = () => {
     store.dispatch({
       type: "ADD_EX",
-      payload: { name: newEx, id: id++, weight: weight, set: set, reps: reps },
+      payload: { name: newEx, id: id++, equipment: equipment },
     });
-
-    setCount(count + 1);
-    dispatch(counter(count));
   };
+
+  // const removeEx = (id) => {
+  //   console.log(id.id);
+
+  //   let filterState = updateState.filter((item) => item.id == id.id);
+  //   console.log(typeof filterState);
+  //   console.log(filterState);
+  //   console.log(updateState);
+  //   store.dispatch({
+  //     type: "REMOVE_EX",
+  //     payload: filterState,
+  //   });
+  // };
+  const [filterResult, setFilterResult] = useState([]);
+  function removeEx(id) {
+    console.log(id.id);
+    updateState.forEach((item) => {
+      console.log(item.id);
+      if (item.id == id.id) {
+        setFilterResult((prev) => [...prev, { item }]);
+      }
+    });
+  }
+
+  // useEffect(() => {
+  //   //kalla på fetchfunktionen
+  //   // fetchFunction();
+  //   //Töm filterResults vid varje sökning
+  //   setFilterResult([]);
+  // }, [search]);
 
   // store.subscribe(() => {
   //   console.log(store.getState());
@@ -47,8 +63,8 @@ function AddExercise() {
 
   return (
     <section>
-      <section id="searchExercise">
-        <h1>Search ex</h1>
+      <section id="addExercise">
+        <h1>Add ex</h1>
 
         <input
           type="text"
@@ -57,21 +73,9 @@ function AddExercise() {
         ></input>
         <input
           type="text"
-          placeholder="weight"
+          placeholder="equipment"
           onChange={(e) => handleChange(null, e.target.value, null, null)}
         ></input>
-        <label htmlFor="set">Set</label>
-        <input
-          type="number"
-          name="set"
-          onChange={(e) => handleChange(null, null, e.target.value, null)}
-        />
-        <label htmlFor="reps">Reps</label>
-        <input
-          type="number"
-          name="reps"
-          onChange={(e) => handleChange(null, null, null, e.target.value)}
-        />
 
         <button
           onClick={submit}
@@ -85,15 +89,11 @@ function AddExercise() {
         {updateState.map((item, i) => (
           <article key={i}>
             <ul>
-              <li>{item.name}</li>
-              <li>{item.weight}</li>
-              <li>
-                {item.set} set x {item.reps} reps
-              </li>
+              <li onClick={() => removeEx({ id: item.id })}>{item.name}</li>
+              <li>{item.equipment}</li>
             </ul>
           </article>
         ))}
-        <h1>Antal övningar: {count}</h1>
       </section>
     </section>
   );
