@@ -3,11 +3,13 @@ import { saveWorkout } from "../Actions/exerciseAction";
 
 function SaveWorkout() {
   const dispatch = useDispatch();
-  const updateState = useSelector((state) => state);
+  const updateState = useSelector((state) => state.saveExReducer);
   console.log(updateState);
+
   const currentDate = Date().toLocaleString();
 
   function saveWorkoutFunction() {
+    //PUSHA IN NY SAVE I EN ARRAY? TYP SOM I setNewEx OCH setSaveEX
     dispatch(saveWorkout(updateState, currentDate));
   }
 

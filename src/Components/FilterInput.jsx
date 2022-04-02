@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SearchExercise from "./SearchExercises";
+import exerciseReducer from "../Reducers/exerciseReducer";
 
 function FilterInput() {
   const [search, setSearch] = useState("");
   const [filterResult, setFilterResult] = useState([]);
-  const updateState = useSelector((state) => state);
-
+  const updateState = useSelector((state) => state.exerciseReducer);
+  const dispatch = useDispatch();
   //Save data from input
   function saveInput(input) {
     setSearch(input);

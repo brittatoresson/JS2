@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import SaveWorkout from "./SaveWorkout";
 
-function Timer(timedata) {
-  console.log(timedata.time);
-  let time = timedata.time * 60;
+function Timer(props) {
+  let time = props.time * 60;
   let min = Math.floor(time / 60);
   let sec = time % 60;
 

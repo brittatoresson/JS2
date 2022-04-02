@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
+import testReducer from "../Reducers/saveExReducer";
 
 function History() {
+  // const updateState = useSelector((state) => state.saveExReducer);
+  const updateState = useSelector((state) => state.saveExReducer);
   let date;
-  const updateState = useSelector((state) => state);
+  // let date = updateState.date.slice(0, updateState.date.length - 38);
 
-  //om updateStore innehåller data-properaty
   if (updateState.date) {
     date = updateState.date.slice(0, updateState.date.length - 38);
   }

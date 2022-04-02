@@ -5,7 +5,6 @@ let initState = [
     weight: 0,
     set: 0,
     reps: 0,
-    alternative: "goblet squat",
   },
 ];
 
@@ -32,12 +31,12 @@ const exerciseReducer = (state = initState, action) => {
     // return action.payload;
     //   break;
 
-    case "SAVE_WORKOUT":
-      return action.payload;
-      break;
-    case "SAVE_EX":
-      return action.payload;
-      break;
+    // case "SAVE_WORKOUT":
+    //   return action.payload;
+    //   break;
+    // case "SAVE_EX":
+    //   return action.payload;
+    //   break;
     default:
       return state;
   }

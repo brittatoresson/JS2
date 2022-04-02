@@ -12,7 +12,7 @@ main {
   max-width: 480px;
   max-height: 1200px;
   color: whitesmoke;
-  height: 800px;
+  height: 900px;
   text-align: center;
   display: grid;
   grid-template-columns: 5fr;
@@ -46,6 +46,7 @@ button {
   flex-direction: row;
   justify-content: space-around;
   grid-area: nav;
+  height: 5vh;
 }
 #mainNav a {
   color: whitesmoke;
@@ -78,8 +79,9 @@ button {
   font-weight: bolder;
 }
 #searchExercise input {
-  width: 3vw;
-  height: 3vw;
+  width: 4vw;
+  height: 4vw;
+  text-align: center;
   background-color: var(--color-light-blue);
 }
 #searchExercise span input {
@@ -87,6 +89,12 @@ button {
 }
 #searchExercise h1 {
   grid-area: h1;
+}
+#searchExercise h3 {
+  margin: 0.5rem;
+}
+#searchExercise p {
+  margin: 0;
 }
 #savedEx h4 {
   margin: 0.5rem;

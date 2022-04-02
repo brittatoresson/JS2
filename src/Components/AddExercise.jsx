@@ -6,7 +6,7 @@ function AddExercise() {
   const [newEx, setNewEx] = useState([]);
   const [equipment, setEquipment] = useState([]);
   const dispatch = useDispatch();
-  const updateState = useSelector((state) => state);
+  const updateState = useSelector((state) => state.exerciseReducer);
   let id = updateState.length;
 
   function handleChange(ex, equipment) {
