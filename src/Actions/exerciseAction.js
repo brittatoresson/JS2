@@ -1,3 +1,8 @@
+export const fetchAction = () => {
+  return {
+    type: "FETCH",
+  };
+};
 export const addEx = (ex) => {
   return {
     type: "ADD_EX",
@@ -5,26 +10,10 @@ export const addEx = (ex) => {
     id: 0,
   };
 };
-export const addSetReps = () => {
-  return {
-    type: "ADD_SET_REPS",
-  };
-};
-export const removeEx = (ex) => {
+export const removeEx = (id) => {
   return {
     type: "REMOVE_EX",
-    payload: ex,
-  };
-};
-export const counter = (nr) => {
-  return {
-    type: "COUNTER",
-    payload: nr,
-  };
-};
-export const fetchAction = () => {
-  return {
-    type: "FETCH",
+    payload: id,
   };
 };
 export const saveWorkout = (saveWorkout, date) => {
@@ -37,11 +26,5 @@ export const saveEX = (saveEx) => {
   return {
     type: "SAVE_EX",
     payload: saveEx,
-  };
-};
-export const saveDate = (date) => {
-  return {
-    type: "SAVE_DATE",
-    payload: date,
   };
 };

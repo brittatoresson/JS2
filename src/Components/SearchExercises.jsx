@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { store } from "../index";
+import { useDispatch } from "react-redux";
 import GoBtn from "./GoBtn";
-import { counter } from "../Actions/exerciseAction";
 import { saveEX } from "../Actions/exerciseAction";
+import Timer from "./Timer";
 
 function SearchExercise(props) {
   const [saveEx, setSaveEx] = useState([]);
   const [set, setSet] = useState([]);
   const [reps, setReps] = useState([]);
-  const [min, setMin] = useState([30]);
+  const [min, setMin] = useState(0);
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
 
@@ -17,23 +16,10 @@ function SearchExercise(props) {
 
   function saveExercise(data) {
     setSaveEx((prev) => [...prev, { name: data.name, id: data.id }]);
-    //counter för antal vöningar
+    //counter för antal övningar
     setCount(count + 1);
     // dispatch saveEx
     dispatch(saveEX(saveEx));
-    console.log(saveEx);
-  }
-
-  function handleChange(set, reps, min) {
-    if (set) {
-      setSet(set);
-    }
-    if (reps) {
-      setReps(reps);
-    }
-    if (min) {
-      setMin(min);
-    }
   }
 
   return (
@@ -49,37 +35,37 @@ function SearchExercise(props) {
         ))}
       </section>
 
-      <h1>Picked exercises</h1>
+      <h1>Workout</h1>
       {saveEx.map((ex, i) => (
         <article key={i} id="savedEx">
-          <h4 key={ex.id}>{ex.name}</h4>
+          <h3 key={ex.id}>{ex.name}</h3>
 
           <label htmlFor="set">Set: </label>
           <input
-            type="number"
+            type="text"
             name="set"
-            onChange={(e) => handleChange(e.target.value, null, null)}
+            onChange={(e) => setSet(e.target.value)}
           />
           <label htmlFor="reps"> Reps: </label>
           <input
-            type="number"
+            type="text"
             name="reps"
-            onChange={(e) => handleChange(null, e.target.value, null)}
+            onChange={(e) => setReps(e.target.value)}
           />
         </article>
       ))}
       <span>
         <label htmlFor="mins"> Time: </label>
         <input
-          type="min"
+          type="text"
           name="min"
           placeholder="30 min"
-          onChange={(e) => handleChange(null, null, e.target.value)}
+          onChange={(e) => setMin(e.target.value)}
         />
       </span>
-      <h1>Antal övningar: {count}</h1>
-
-      <GoBtn time={min} />
+      <p>Antal övningar: {count}</p>
+      {count > 0 && min > 0 ? <Timer time={min} /> : <p>ange min</p>}
+      {/* <GoBtn time={min} /> */}
     </section>
   );
 }
