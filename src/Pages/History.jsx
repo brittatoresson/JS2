@@ -9,12 +9,13 @@ function History() {
   // let date = updateState.date.slice(0, updateState.date.length - 38);
   console.log(updateState);
   if (updateState.date) {
-    date = updateState.date[0].slice(0, updateState.date.length - 38);
+    date = updateState.date[0].slice(0, updateState.date.length - 48);
   }
 
   return (
-    <section>
+    <section id="history">
       <h1>History</h1>
+      <p>{date}</p>
       {updateState.date ? (
         updateState.workout.ex.map((item, i) => (
           <ul key={i}>
@@ -25,7 +26,6 @@ function History() {
         <p>No history</p>
       )}
 
-      <p>{date}</p>
       {updateState.workout ? (
         <ul>
           <li>Set: {updateState.workout.set}</li>

@@ -41,9 +41,9 @@ function App() {
           <Route path="/history" element={<History />}></Route>
         </Routes>
         <section id="mainNav">
-          <Link to="/">home</Link>
-          <Link to="/search">sök</Link>
-          <Link to="/add">add</Link>
+          <Link to="/">Home</Link>
+          <Link to="/search">Search</Link>
+          <Link to="/add">Add</Link>
           <Link to="/history">History</Link>
         </section>
       </BrowserRouter>

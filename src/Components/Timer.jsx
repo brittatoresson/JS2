@@ -29,15 +29,15 @@ function Timer(props) {
   return (
     <section id="timer">
       <div>{minutes + ":" + seconds}</div>
-      {/* {seconds === 0 && minutes === 0 ? (
+      {seconds === 0 && minutes === 0 ? (
         ((<p>Done!</p>), (<SaveWorkout />))
       ) : (
         <button onClick={() => setClicked(!clicked)}>
           {!clicked ? "Go!" : "Stop"}
         </button>
-      )} */}
-      <SaveWorkout />
-      {/* {clicked ? <Timer time={min.time} /> : null} */}
+      )}
+      {/* <SaveWorkout />
+      {clicked ? <Timer time={min.time} /> : null} */}
     </section>
   );
 }
