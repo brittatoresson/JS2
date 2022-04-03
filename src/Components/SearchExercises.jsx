@@ -19,8 +19,12 @@ function SearchExercise(props) {
     //counter för antal övningar
     setCount(count + 1);
     // dispatch saveEx
-    dispatch(saveEX(saveEx));
   }
+
+  function time(e) {
+    setMin(e);
+  }
+  dispatch(saveEX(saveEx, min, set, reps));
 
   return (
     <section id="searchExercise">
@@ -60,7 +64,8 @@ function SearchExercise(props) {
           type="text"
           name="min"
           placeholder="30 min"
-          onChange={(e) => setMin(e.target.value)}
+          onChange={(e) => time(e.target.value)}
+          // onChange={(e) => setMin(e.target.value)}
         />
       </span>
       <p>Antal övningar: {count}</p>

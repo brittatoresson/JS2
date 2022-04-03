@@ -22,9 +22,9 @@ export const saveWorkout = (saveWorkout, date) => {
     payload: { workout: saveWorkout, date: date },
   };
 };
-export const saveEX = (saveEx) => {
+export const saveEX = (saveEx, min, set, reps) => {
   return {
     type: "SAVE_EX",
-    payload: saveEx,
+    payload: { ex: saveEx, min: min, set: set, reps: reps },
   };
 };

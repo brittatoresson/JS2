@@ -1,15 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 import { saveWorkout } from "../Actions/exerciseAction";
+import { useState } from "react";
 
 function SaveWorkout() {
   const dispatch = useDispatch();
   const updateState = useSelector((state) => state.saveExReducer);
   console.log(updateState);
 
-  const currentDate = Date().toLocaleString();
+  const currentDate = useState(Date().toLocaleString());
+  // const [newWorkout, setNewWorkout] = useState(updateState);
 
   function saveWorkoutFunction() {
-    //PUSHA IN NY SAVE I EN ARRAY? TYP SOM I setNewEx OCH setSaveEX
     dispatch(saveWorkout(updateState, currentDate));
   }
 

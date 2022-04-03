@@ -7,7 +7,9 @@ function AddExercise() {
   const [equipment, setEquipment] = useState([]);
   const dispatch = useDispatch();
   const updateState = useSelector((state) => state.exerciseReducer);
+  const [removeState, setRemoveState] = useState([]);
   let id = updateState.length;
+  let itemId;
 
   function handleChange(ex, equipment) {
     if (ex) {
@@ -22,29 +24,34 @@ function AddExercise() {
       type: "ADD_EX",
       payload: { name: newEx, id: id++, equipment: equipment },
     });
-    console.log(equipment);
   };
 
-  let itemId;
-  const [filterResult, setFilterResult] = useState([]);
   function removeEx(id) {
+    //reset removeState vid varje klick
+    setRemoveState([]);
     itemId = id.id;
-    // store.dispatch({
-    //   type: "REMOVE_EX",
-    //   payload: itemId,
-    // });
+    console.log(itemId);
 
-    // updateState.forEach((item) => {
-    //   console.log(item.id);
-    //   if (item.id == id.id) {
-    //     setFilterResult(item);
-    //   }
-    // });
+    updateState.forEach((element) => {
+      if (!element.id.includes(itemId)) {
+        setRemoveState((prev) => [...prev, element]);
+      }
+    });
   }
+  console.log(removeState);
 
-  // store.subscribe(() => {
-  //   console.log(store.getState());
+  if (removeState.length > 1) {
+    store.dispatch({
+      type: "REMOVE_EX",
+      payload: removeState,
+    });
+  }
+  // updateState.forEach((element) => {
+  //   if (!element.id == itemId) {
+  //     setRemoveState((prev) => [...prev, element]);
+  //   }
   // });
+  // }
 
   return (
     <section id="addExercise">
