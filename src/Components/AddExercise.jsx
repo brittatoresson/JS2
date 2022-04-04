@@ -10,7 +10,6 @@ function AddExercise() {
   const updateState = useSelector((state) => state.exerciseReducer);
   const [removeState, setRemoveState] = useState([]);
   let id = updateState.length;
-  let itemId;
 
   function handleChange(ex, equipment) {
     if (ex) {
@@ -42,7 +41,13 @@ function AddExercise() {
         setRemoveState((prev) => [...prev, element]);
       }
     });
+    // updateState.forEach((element) => {
+    //   if (element.id == !id.id) {
+    //     setRemoveState((prev) => [...prev, element]);
+    //   }
+    // });
   }
+
   if (removeState.length > 1) {
     // dispatch(removeEx(removeState));
     store.dispatch({
@@ -50,12 +55,6 @@ function AddExercise() {
       payload: removeState,
     });
   }
-  // updateState.forEach((element) => {
-  //   if (!element.id == itemId) {
-  //     setRemoveState((prev) => [...prev, element]);
-  //   }
-  // });
-  // }
 
   return (
     <section id="addExercise">

@@ -14,12 +14,13 @@ main {
   max-width: 480px;
   max-height: 1200px;
   color: whitesmoke;
-  height: 700px;
+  height: 800px;
   text-align: center;
   display: grid;
   grid-template-columns: 5fr;
   grid-template-rows: auto;
   grid-template-areas:
+    "headNav headNav headNav"
     "input input input"
     "h1 h1 h1"
     "nav nav nav";
@@ -28,7 +29,9 @@ main {
   align-items: center;
   flex-direction: column;
 }
-
+h1 {
+  margin: 0;
+}
 li {
   list-style: none;
 }
@@ -53,21 +56,40 @@ button:active {
 input:focus {
   height: 5vh;
 }
-
-#mainNav {
-  grid-area: nav;
-  height: 5vh;
-}
-#mainNav a {
+.nav a {
   color: whitesmoke;
   text-decoration: none;
   padding: 2rem;
 }
-#mainNav a:hover {
+.nav a:hover {
   color: whitesmoke;
   text-decoration: none;
   font-weight: bolder;
+  transform: scale(1.2);
 }
+#startBtn {
+  margin: 5rem;
+  height: 3rem;
+}
+#startBtn:hover {
+  transform: scale(1.2);
+  background-color: rgb(204, 199, 199);
+}
+#home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60vw;
+  position: absolute;
+  top: 1rem;
+}
+#mainNav {
+  grid-area: nav;
+  height: 5vh;
+  position: absolute;
+  bottom: 5rem;
+}
+
 #filterbody {
   justify-items: center;
   height: auto;
@@ -110,6 +132,8 @@ input:focus {
 }
 #searchExercise h1 {
   text-decoration: underline;
+  padding: 2rem;
+  font-size: 20px;
   grid-area: h1;
 }
 #searchExercise h3 {
@@ -125,14 +149,10 @@ input:focus {
 #count {
   text-align: right;
 }
-/**********************************/
-/* #saveWorkout button:active {
-  height: 1.5rem;
-} */
-/**********************************/
+
 /**********************************/
 #workout {
-  min-height: 20vh;
+  min-height: 30vh;
 }
 /**********************************/
 
@@ -142,6 +162,7 @@ input:focus {
   place-items: center;
 }
 #addExerciseInput {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -172,10 +193,20 @@ input:focus {
   padding: 1.5rem;
   margin: 1rem;
 }
-#historyStats {
-}
+
 #history li,
 h3 {
   text-align: left;
   margin: 0;
+}
+/**********************************/
+#randomWod {
+  margin: 2rem;
+}
+/**********************************/
+#timer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
 }

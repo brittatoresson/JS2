@@ -34,11 +34,11 @@ function SearchExercise(props) {
           key={i}
           onClick={() => saveExercise({ name: item.name, id: item.id })}
         >
-          ➕ {item.name}
+          + {item.name}
         </li>
       ))}
       <section id="workout">
-        <h1>Workout</h1>
+        <h1>Your Workout</h1>
         {saveEx.map((ex, i) => (
           <article key={i} id="savedEx">
             <h3 key={ex.id}>{ex.name}</h3>
@@ -60,14 +60,12 @@ function SearchExercise(props) {
       </section>
       {count > 0 ? (
         <span>
-          <label htmlFor="mins"> Time: </label>
+          <label htmlFor="mins"> Add timecap: </label>
           <input
             type="text"
             name="min"
-            placeholder="30 min"
             onChange={(e) => time(e.target.value)}
-            // onChange={(e) => setMin(e.target.value)}
-          />
+          />{" "}
         </span>
       ) : null}
       <p id="count">Antal övningar: {count}</p>
