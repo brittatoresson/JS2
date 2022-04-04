@@ -2,7 +2,8 @@
   --main-bg-color: #231f42;
   --color-blue: rgba(33, 63, 123, 1);
   --color-light-blue: rgba(148, 177, 237, 1);
-  --color-sky-blue: rgba(223, 235, 251, 1);
+  --color-sky-blue: rgb(214, 221, 230);
+  /* --color-sky-blue: rgba(223, 235, 251, 1); */
   --border: 1px solid var(--color-pink);
   --border-radius: 10px;
 }
@@ -13,7 +14,7 @@ main {
   max-width: 480px;
   max-height: 1200px;
   color: whitesmoke;
-  height: 900px;
+  height: 700px;
   text-align: center;
   display: grid;
   grid-template-columns: 5fr;
@@ -93,7 +94,7 @@ input:focus {
   text-align: left;
   min-height: 20vh;
 }
-#searchExercise section li:hover {
+#searchExercise li:hover {
   padding: 0.5rem;
   font-weight: bolder;
 }
@@ -170,4 +171,11 @@ input:focus {
   color: rgb(20, 20, 20);
   padding: 1.5rem;
   margin: 1rem;
+}
+#historyStats {
+}
+#history li,
+h3 {
+  text-align: left;
+  margin: 0;
 }

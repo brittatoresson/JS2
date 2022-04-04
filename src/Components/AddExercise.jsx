@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../index";
+import { addEx, removeEx } from "../Actions/exerciseAction";
 
 function AddExercise() {
   const [newEx, setNewEx] = useState([]);
@@ -20,27 +21,30 @@ function AddExercise() {
     }
   }
   const submit = () => {
-    store.dispatch({
-      type: "ADD_EX",
-      payload: { name: newEx, id: id++, equipment: equipment },
-    });
+    if (removeState.length > 1) {
+      //Om ett element är borttaget ur listan dispatchas removeState
+      setRemoveState((prev) => [
+        ...prev,
+        { name: newEx, id: id++, equipment: equipment },
+      ]);
+      dispatch(addEx(removeState));
+      //Om inget element är borttaget ur listan dispatchas newEx
+    } else {
+      dispatch(addEx({ name: newEx, id: id++, equipment: equipment }));
+    }
   };
 
   function removeEx(id) {
-    //reset removeState vid varje klick
+    //Reset removeState vid varje klick
     setRemoveState([]);
-    itemId = id.id;
-    console.log(itemId);
-
     updateState.forEach((element) => {
-      if (!element.id.includes(itemId)) {
+      if (!element.id.includes(id.id)) {
         setRemoveState((prev) => [...prev, element]);
       }
     });
   }
-  console.log(removeState);
-
   if (removeState.length > 1) {
+    // dispatch(removeEx(removeState));
     store.dispatch({
       type: "REMOVE_EX",
       payload: removeState,

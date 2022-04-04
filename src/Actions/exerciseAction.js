@@ -17,6 +17,7 @@ export const removeEx = (id) => {
   };
 };
 export const saveWorkout = (saveWorkout, date) => {
+  console.log(date);
   return {
     type: "SAVE_WORKOUT",
     payload: { workout: saveWorkout, date: date },

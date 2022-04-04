@@ -10,8 +10,6 @@ export const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-///OKLART
-// store.subscribe(() => console.log(store.getState()));
 
 const container = document.getElementById("root");
 const root = createRoot(container);

@@ -25,6 +25,8 @@ function SearchExercise(props) {
   }
   dispatch(saveEX(saveEx, min, set, reps));
 
+  // useEffect(() => {}, []);
+
   return (
     <section id="searchExercise">
       {props.searchData.map((item, i) => (
@@ -32,7 +34,7 @@ function SearchExercise(props) {
           key={i}
           onClick={() => saveExercise({ name: item.name, id: item.id })}
         >
-          {item.name}
+          ➕ {item.name}
         </li>
       ))}
       <section id="workout">

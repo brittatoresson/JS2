@@ -6,12 +6,14 @@ import AddExercise from "./Components/AddExercise";
 import { store } from "./index";
 import Home from "./Pages/Home";
 import History from "./Pages/History";
+import RandomWod from "./Components/RandomWod";
 
 const redux = require("redux");
 
 function App() {
   const API = "http://localhost:6001/data.json";
   const [state, setState] = useState([]);
+  const [start, setStart] = useState(false);
   async function fetchFunction() {
     try {
       const response = await fetch(API);
@@ -26,11 +28,16 @@ function App() {
     type: "FETCH",
     payload: state,
   });
-  useEffect(() => {
-    //kalla på fetchfunktionen
-    fetchFunction();
-  }, []);
+  // useEffect(() => {
+  //   //kalla på fetchfunktionen
+  //   fetchFunction();
+  // }, []);
 
+  function startApp() {
+    fetchFunction();
+    setStart(true);
+    console.log("start");
+  }
   return (
     <main>
       <BrowserRouter>
@@ -39,13 +46,19 @@ function App() {
           <Route path="/search" element={<FilterInput />}></Route>
           <Route path="/add" element={<AddExercise />}></Route>
           <Route path="/history" element={<History />}></Route>
+          <Route path="/random" element={<RandomWod />}></Route>
         </Routes>
-        <section id="mainNav">
-          <Link to="/">Home</Link>
-          <Link to="/search">Search</Link>
-          <Link to="/add">Add</Link>
-          <Link to="/history">History</Link>
-        </section>
+        {!start ? (
+          <button onClick={startApp}>START</button>
+        ) : (
+          <section id="mainNav">
+            <Link to="/">Home</Link>
+            <Link to="/search">Search</Link>
+            <Link to="/add">Add</Link>
+            <Link to="/history">History</Link>
+            <Link to="/random">RandomWod</Link>
+          </section>
+        )}
       </BrowserRouter>
     </main>
   );
