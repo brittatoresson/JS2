@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { saveEX } from "../Actions/exerciseAction";
 import Timer from "./Timer";
@@ -9,7 +9,6 @@ function SearchExercise(props) {
   const [reps, setReps] = useState([]);
   const [min, setMin] = useState(0);
   const [count, setCount] = useState(0);
-
   const dispatch = useDispatch();
   const currentDate = useState(Date().toLocaleString());
 
@@ -18,15 +17,10 @@ function SearchExercise(props) {
     setSaveEx((prev) => [...prev, { name: data.name, id: data.id }]);
     // counter för antal övningar
     setCount(count + 1);
-    // setData(data);
-    // dispatch saveEx
   }
 
-  function time(e) {
-    setMin(e);
-  }
+  // dispatch saveEx
   dispatch(saveEX(saveEx, min, set, reps, count, currentDate));
-  //FLYTTADE DISPATECHEN IN I FUNKTIONEN HÄRIFRÅN
 
   return (
     <section id="searchExercise" className="scroller">
@@ -65,11 +59,10 @@ function SearchExercise(props) {
           <input
             type="text"
             name="min"
-            onChange={(e) => time(e.target.value)}
+            onChange={(e) => setMin(e.target.value)}
           />{" "}
         </span>
       ) : null}
-      {/* <p id="count">Antal övningar: {count}</p> */}
       {count > 0 && min > 0 ? <Timer time={min} /> : null}
     </section>
   );

@@ -1,21 +1,19 @@
 import "./App.css";
 import FilterInput from "./Components/FilterInput.jsx";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchAction } from "./Actions/exerciseAction";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AddExercise from "./Components/AddExercise";
-import { store } from "./index";
 import Home from "./Pages/Home";
 import History from "./Pages/History";
 import RandomWod from "./Components/RandomWod";
-import { useDispatch } from "react-redux";
-import { fetchAction } from "./Actions/exerciseAction";
 
 const redux = require("redux");
 
 function App() {
   const dispatch = useDispatch();
   const API = "http://localhost:6002/data.json";
-  const [state, setState] = useState([]);
   const [start, setStart] = useState(false);
 
   //Fetcha API
@@ -23,17 +21,12 @@ function App() {
     try {
       const response = await fetch(API);
       const data = await response.json();
-      setState(data);
+      //dispatch action state
+      dispatch(fetchAction(data));
     } catch (err) {
       throw err;
     }
   }
-  //dispatch action state
-  store.dispatch({
-    type: "FETCH",
-    payload: state,
-  });
-  // dispatch(fetchAction(state));
 
   //Starta appen, kalla på fetchfunktionen
   function startApp() {

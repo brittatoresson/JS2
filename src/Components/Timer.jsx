@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SaveWorkout from "./SaveWorkout";
 
 function Timer(props) {
   let time = props.time * 60;
   let min = Math.floor(time / 60);
   let sec = time % 60;
-
   const [minutes, setMinutes] = useState(min);
   const [seconds, setSeconds] = useState(sec);
   const [clicked, setClicked] = useState(false);
 
+  //starta nedräkning på klick
   if (clicked === true) {
     let countDown = setTimeout(() => {
       if (seconds > 0) {
@@ -17,6 +17,7 @@ function Timer(props) {
       }
       if (seconds === 0) {
         if (minutes === 0) {
+          //avsluta timer
           clearTimeout(countDown);
         } else {
           setMinutes((prev) => minutes - 1);
@@ -36,8 +37,6 @@ function Timer(props) {
           {!clicked ? "Go!" : "Stop"}
         </button>
       )}
-      {/* <SaveWorkout />
-      {clicked ? <Timer time={min.time} /> : null} */}
     </section>
   );
 }

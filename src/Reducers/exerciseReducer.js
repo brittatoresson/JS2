@@ -1,7 +1,7 @@
 let initState = [
   {
     id: "1",
-    name: "deadlift",
+    name: "",
   },
 ];
 

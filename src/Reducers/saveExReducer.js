@@ -1,4 +1,4 @@
-let saveEX = [
+let saveEx = [
   {
     id: "2",
     name: "push press",
@@ -8,7 +8,7 @@ let saveEX = [
   },
 ];
 
-const saveExReducer = (state = saveEX, action) => {
+const saveExReducer = (state = saveEx, action) => {
   switch (action.type) {
     case "SAVE_EX":
       return action.payload;

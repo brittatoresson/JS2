@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import SearchExercise from "./SearchExercises";
-import exerciseReducer from "../Reducers/exerciseReducer";
 
 function FilterInput() {
   const [search, setSearch] = useState("");
   const [filterResult, setFilterResult] = useState([]);
   const updateState = useSelector((state) => state.exerciseReducer);
-  const dispatch = useDispatch();
 
-  //Spara datan från inputfält
+  //Spara datan från input
   function saveInput(input) {
     setSearch(input.toLowerCase());
   }
-  //Funktion som filtrerar sökresultatet mot API
+  //Funktion som filtrerar input mot API
   function filterResults() {
     updateState.forEach((name) => {
       if (name.name.toLowerCase().includes(search)) {
@@ -21,6 +19,7 @@ function FilterInput() {
       }
     });
   }
+  // kalla på filterResults() vid enter
   function onEnter(e) {
     if (e.key === "Enter") {
       filterResults();

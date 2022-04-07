@@ -9,6 +9,7 @@ function SaveWorkout() {
   const updateState = useSelector((state) => state.saveExReducer);
   const currentDate = useState(Date().toLocaleString());
 
+  //Funktion som sparar hela träningspasset och uppdaterar state med detta, skickar även in dagens datum
   function saveWorkoutFunction() {
     setClick(!click);
     dispatch(saveWorkout(updateState, currentDate));

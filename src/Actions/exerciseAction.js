@@ -1,13 +1,13 @@
-export const fetchAction = () => {
+export const fetchAction = (state) => {
   return {
     type: "FETCH",
+    payload: state,
   };
 };
 export const addEx = (ex) => {
   return {
     type: "ADD_EX",
     payload: ex,
-    id: 0,
   };
 };
 export const removeEx = (id) => {
@@ -16,7 +16,7 @@ export const removeEx = (id) => {
     payload: id,
   };
 };
-export const saveWorkout = (saveWorkout, date) => {
+export const saveWorkout = (saveWorkout) => {
   return {
     type: "SAVE_WORKOUT",
     payload: saveWorkout,
