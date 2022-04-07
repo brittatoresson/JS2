@@ -46,13 +46,7 @@ function History() {
         : null}
 
       <h3> Saved Random Wod: </h3>
-      {randomWod
-        ? randomWod.map((item, i) => (
-            <>
-              <p key={i}> * {item}</p>
-            </>
-          ))
-        : null}
+      {randomWod ? randomWod.map((item, i) => <p key={i}> * {item}</p>) : null}
     </section>
   );
 }

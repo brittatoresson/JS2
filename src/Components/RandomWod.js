@@ -54,7 +54,7 @@ function RandomWod() {
           ))}
         </section>
       ) : null}
-      {input > 0 ? <Timer time={time} /> : null}
+      {input > 0 ? <Timer time={0.1} /> : null}
     </section>
   );
 }

@@ -19,14 +19,14 @@ function SearchExercise(props) {
     // counter för antal övningar
     setCount(count + 1);
     // setData(data);
+    // dispatch saveEx
   }
 
   function time(e) {
     setMin(e);
   }
-
-  // dispatch saveEx
   dispatch(saveEX(saveEx, min, set, reps, count, currentDate));
+  //FLYTTADE DISPATECHEN IN I FUNKTIONEN HÄRIFRÅN
 
   return (
     <section id="searchExercise" className="scroller">

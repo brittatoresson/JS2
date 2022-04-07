@@ -14,7 +14,7 @@ const redux = require("redux");
 
 function App() {
   const dispatch = useDispatch();
-  const API = "http://localhost:6001/data.json";
+  const API = "http://localhost:6002/data.json";
   const [state, setState] = useState([]);
   const [start, setStart] = useState(false);
 

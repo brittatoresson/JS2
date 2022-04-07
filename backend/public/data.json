@@ -1,0 +1,101 @@
+[
+  {
+    "id": "1",
+    "name": "Deadlift",
+    "weight": 0,
+    "alternative": "goblet squat"
+  },
+  { "id": "2", "name": "Clean", "weight": 0, "alternative": "front squat" },
+  {
+    "id": "3",
+    "name": "Clean and jerk",
+    "weight": 0,
+    "alternative": "kb-swing"
+  },
+  { "id": "4", "name": "Snatch", "weight": 0, "alternative": "kb-swing" },
+  {
+    "id": "5",
+    "name": "Front squat",
+    "weight": 0,
+    "alternative": "goblet squat"
+  },
+  {
+    "id": "6",
+    "name": "Back squat lunges",
+    "weight": 0,
+    "alternative": "goblet squat"
+  },
+  {
+    "id": "7",
+    "name": "Front squat lunges",
+    "weight": 0,
+    "alternative": "goblet squat"
+  },
+  {
+    "id": "8",
+    "name": "Barbell strickt press",
+    "weight": 0,
+    "alternative": "db press"
+  },
+  {
+    "id": "9",
+    "name": "Barbell push press",
+    "weight": 0,
+    "alternative": "db push press"
+  },
+  { "id": "10", "name": "Jerk", "weight": 0, "alternative": "db push press" },
+  {
+    "id": "11",
+    "name": "Front rack lunges",
+    "weight": 0,
+    "alternative": "goblet squat"
+  },
+
+  {
+    "id": "12",
+    "name": "Dumbell push press",
+    "weight": 0,
+    "alternative": "push up"
+  },
+  {
+    "id": "13",
+    "name": "Dumbell power snatch",
+    "weight": 0,
+    "alternative": "kb swing"
+  },
+  {
+    "id": "14",
+    "name": "Dumbell clean and jerk",
+    "weight": 0,
+    "alternative": "dumbell pushpres"
+  },
+  {
+    "id": "15",
+    "name": "Dumbell press",
+    "weight": 0,
+    "alternative": "push up"
+  },
+  {
+    "id": "16",
+    "name": "Row",
+    "weight": 0,
+    "alternative": ""
+  },
+  {
+    "id": "17",
+    "name": "Dumbell box stepup",
+    "weight": 0,
+    "alternative": ""
+  },
+  {
+    "id": "18",
+    "name": "Dual dumbell devils press",
+    "weight": 0,
+    "alternative": ""
+  },
+  {
+    "id": "19",
+    "name": "Db box step up",
+    "weight": 0
+  }
+]
