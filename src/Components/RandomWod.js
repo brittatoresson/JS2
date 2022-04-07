@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Timer from "./Timer";
 import { saveWorkout } from "../Actions/exerciseAction";
+import { saveRandom } from "../Actions/exerciseAction";
 
 let numberOfExercise;
 let randomAll = [];
@@ -29,7 +30,9 @@ function RandomWod() {
     wod.push(` ${numberOfExercise} st ${randomAll}`);
   }
 
-  dispatch(saveWorkout(randomAll));
+  if (randomAll.length > 1) {
+    dispatch(saveRandom(wod));
+  }
 
   useEffect(() => {
     wod = [];
@@ -37,16 +40,20 @@ function RandomWod() {
 
   return (
     <section id="randomWod">
-      <h1>RandomWod</h1>
+      <h1>Random Wod</h1>
       <input
         type="number"
         name="number"
-        placeholder="Hur många övningar?"
+        placeholder="Number of exercise"
         onChange={(e) => setinput(e.target.value)}
       ></input>
-      {wod.map((item, i) => (
-        <p key={i}>{item}</p>
-      ))}
+      {input > 0 ? (
+        <section id="randomWodList">
+          {wod.map((item, i) => (
+            <p key={i}>{item}</p>
+          ))}
+        </section>
+      ) : null}
       {input > 0 ? <Timer time={time} /> : null}
     </section>
   );

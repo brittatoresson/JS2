@@ -28,7 +28,7 @@ function Timer(props) {
 
   return (
     <section id="timer">
-      <div>{minutes + ":" + seconds}</div>
+      Time: {minutes + ":" + seconds} min
       {seconds === 0 && minutes === 0 ? (
         ((<p>Done!</p>), (<SaveWorkout />))
       ) : (

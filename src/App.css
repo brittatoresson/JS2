@@ -1,31 +1,23 @@
 :root {
   --main-bg-color: #231f42;
-  --color-blue: rgba(33, 63, 123, 1);
-  --color-light-blue: rgba(148, 177, 237, 1);
+  --color-text: whitesmoke;
   --color-sky-blue: rgb(214, 221, 230);
-  /* --color-sky-blue: rgba(223, 235, 251, 1); */
   --border: 1px solid var(--color-pink);
   --border-radius: 10px;
 }
 
+#root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 main {
   background-image: url("https://images.unsplash.com/photo-1614236224416-9a88c2e195e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=629&q=80");
-  /* background-color: var(--color-blue); */
-  max-width: 480px;
-  max-height: 1200px;
-  color: whitesmoke;
+  color: var(--color-text);
   height: 800px;
+  width: 480px;
   text-align: center;
-  display: grid;
-  grid-template-columns: 5fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "headNav headNav headNav"
-    "input input input"
-    "h1 h1 h1"
-    "nav nav nav";
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
@@ -42,80 +34,85 @@ button {
   border-radius: var(--border-radius);
   background: #fff;
   outline: 0;
-  width: 20vw;
+  width: 15vw;
   height: 4vh;
 }
 button {
   width: 10vw;
-  height: 3vh;
+  height: 3.5vh;
 }
 button:active {
   height: 1.5rem;
   background-color: rgb(233, 232, 232);
 }
 input:focus {
-  height: 5vh;
+  transform: scale(1.1);
 }
 .nav a {
-  color: whitesmoke;
+  color: var(--color-text);
   text-decoration: none;
   padding: 2rem;
 }
 .nav a:hover {
-  color: whitesmoke;
+  color: var(--color-text);
   text-decoration: none;
   font-weight: bolder;
   transform: scale(1.2);
 }
+.scroller {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
 #startBtn {
-  margin: 5rem;
+  width: 7rem;
+  margin: 15rem;
   height: 3rem;
 }
 #startBtn:hover {
   transform: scale(1.2);
-  background-color: rgb(204, 199, 199);
+  background-color: #d1d1d1;
 }
 #home {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 60vw;
   position: absolute;
-  top: 1rem;
+  top: 0rem;
+  grid-area: home;
+  width: 30%;
 }
+
 #mainNav {
   grid-area: nav;
   height: 5vh;
   position: absolute;
-  bottom: 5rem;
+  bottom: 0rem;
 }
-
+/**********************************/
 #filterbody {
   justify-items: center;
   height: auto;
-  width: 80%;
   width: auto;
   background-color: var(--color-sky-blue);
   border-radius: var(--border-radius);
   align-items: flex-start;
   color: rgb(20, 20, 20);
   padding: 1.5rem;
-  margin: 1rem;
+  margin: 4rem;
 }
 
 #inputField {
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-area: input;
 }
 
 #searchExercise {
-  display: flex;
-  flex-direction: column;
   text-align: left;
   min-height: 20vh;
 }
+
 #searchExercise li:hover {
   padding: 0.5rem;
   font-weight: bolder;
@@ -125,34 +122,44 @@ input:focus {
   height: 2vw;
   border-radius: 2px;
   text-align: center;
-  background-color: var(--color-light-blue);
+  background-color: var(--color-text);
 }
 #searchExercise span input {
   width: 10vw;
 }
-#searchExercise h1 {
-  text-decoration: underline;
-  padding: 2rem;
-  font-size: 20px;
-  grid-area: h1;
+#searchExercise span input:active {
+  background-color: var(--color-text);
 }
-#searchExercise h3 {
-  margin: 0;
-}
-#searchExercise p {
+
+#searchExercise h3,
+p {
   margin: 0;
 }
 #savedEx h4 {
   margin: 0.5rem;
-  /* padding: 0; */
 }
 #count {
   text-align: right;
+}
+/**********************************/
+#timer,
+#saveWorkout {
+  min-height: 10vh;
+}
+#saveWorkout h1 {
+  padding-top: 1rem;
+  font-size: 16px;
 }
 
 /**********************************/
 #workout {
   min-height: 30vh;
+}
+#workout h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 20px;
+  padding: 1rem;
 }
 /**********************************/
 
@@ -162,7 +169,7 @@ input:focus {
   place-items: center;
 }
 #addExerciseInput {
-  margin-top: 2rem;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -179,10 +186,6 @@ input:focus {
   color: rgb(20, 20, 20);
   padding: 1rem;
 }
-
-#addExercise input {
-}
-
 /**********************************/
 
 #history {
@@ -191,22 +194,34 @@ input:focus {
   align-items: flex-start;
   color: rgb(20, 20, 20);
   padding: 1.5rem;
-  margin: 1rem;
+  margin: 4rem;
 }
 
 #history li,
-h3 {
+h4 {
   text-align: left;
   margin: 0;
 }
+#historyStats,
+#historyStats ul {
+  padding: 0;
+  margin: 0;
+}
+#historySection {
+  border-bottom: 2px solid whitesmoke;
+  padding-bottom: 1rem;
+}
 /**********************************/
 #randomWod {
-  margin: 2rem;
+  margin: 4rem;
+}
+#randomWodList {
+  background-color: var(--color-sky-blue);
+  border-radius: var(--border-radius);
+  width: 80%;
+  width: auto;
+  color: rgb(20, 20, 20);
+  padding: 1.5rem;
+  margin: 1rem;
 }
 /**********************************/
-#timer {
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-}

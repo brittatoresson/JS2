@@ -8,8 +8,8 @@ function FilterInput() {
   const [filterResult, setFilterResult] = useState([]);
   const updateState = useSelector((state) => state.exerciseReducer);
   const dispatch = useDispatch();
-  const [hit, setHit] = useState(true);
-  //Save data from input
+
+  //Spara datan från inputfält
   function saveInput(input) {
     setSearch(input.toLowerCase());
   }
@@ -18,9 +18,6 @@ function FilterInput() {
     updateState.forEach((name) => {
       if (name.name.toLowerCase().includes(search)) {
         setFilterResult((prev) => [...prev, { name: name.name, id: name.id }]);
-        setHit(true);
-      } else {
-        setHit(false);
       }
     });
   }
@@ -46,7 +43,6 @@ function FilterInput() {
         ></input>
         <button onClick={() => filterResults()}>Search</button>
       </section>
-      {/* {hit === false ? "No hits" : null} */}
       <SearchExercise searchData={filterResult} />
     </section>
   );

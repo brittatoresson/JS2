@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import exerciseReducer from "./exerciseReducer";
 import saveExReducer from "./saveExReducer";
-// import removeExReducer from "./removeExReducer";
+import saveWorkoutReducer from "./saveWorkoutReducer";
+import saveRandomWodReducer from "./saveRandomWodReducer";
 
 const rootReducer = combineReducers({
   exerciseReducer,
   saveExReducer,
-  // removeExReducer,
+  saveWorkoutReducer,
+  saveRandomWodReducer,
 });
 
 export default rootReducer;

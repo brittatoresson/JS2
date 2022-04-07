@@ -4,26 +4,29 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function SaveWorkout() {
+  const [click, setClick] = useState(false);
   const dispatch = useDispatch();
   const updateState = useSelector((state) => state.saveExReducer);
-  console.log(updateState);
-
   const currentDate = useState(Date().toLocaleString());
-  // const [newWorkout, setNewWorkout] = useState(updateState);
-  console.log(currentDate);
 
   function saveWorkoutFunction() {
+    setClick(!click);
     dispatch(saveWorkout(updateState, currentDate));
   }
 
   return (
     <section id="saveWorkout">
-      <h1>Save workout?</h1>
-      <button onClick={saveWorkoutFunction}>Yes</button>
-      <Link to="/">
-        {" "}
-        <button>No</button>
-      </Link>
+      {!click ? (
+        <span>
+          <h1>Save workout?</h1>
+          <button onClick={saveWorkoutFunction}>Yes</button>
+          <Link to="/">
+            <button>No</button>
+          </Link>
+        </span>
+      ) : (
+        <h1>Saved!</h1>
+      )}
     </section>
   );
 }

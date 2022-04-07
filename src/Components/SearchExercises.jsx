@@ -9,26 +9,27 @@ function SearchExercise(props) {
   const [reps, setReps] = useState([]);
   const [min, setMin] = useState(0);
   const [count, setCount] = useState(0);
+
   const dispatch = useDispatch();
+  const currentDate = useState(Date().toLocaleString());
 
   //funktion som sparar vald exercise till setSaveEx
-
   function saveExercise(data) {
     setSaveEx((prev) => [...prev, { name: data.name, id: data.id }]);
-    //counter för antal övningar
+    // counter för antal övningar
     setCount(count + 1);
-    // dispatch saveEx
+    // setData(data);
   }
 
   function time(e) {
     setMin(e);
   }
-  dispatch(saveEX(saveEx, min, set, reps));
 
-  // useEffect(() => {}, []);
+  // dispatch saveEx
+  dispatch(saveEX(saveEx, min, set, reps, count, currentDate));
 
   return (
-    <section id="searchExercise">
+    <section id="searchExercise" className="scroller">
       {props.searchData.map((item, i) => (
         <li
           key={i}
@@ -68,10 +69,8 @@ function SearchExercise(props) {
           />{" "}
         </span>
       ) : null}
-      <p id="count">Antal övningar: {count}</p>
+      {/* <p id="count">Antal övningar: {count}</p> */}
       {count > 0 && min > 0 ? <Timer time={min} /> : null}
-
-      {/* <p>ange min</p> */}
     </section>
   );
 }

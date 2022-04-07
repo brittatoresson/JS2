@@ -19,12 +19,25 @@ export const removeEx = (id) => {
 export const saveWorkout = (saveWorkout, date) => {
   return {
     type: "SAVE_WORKOUT",
-    payload: { workout: saveWorkout, date: date },
+    payload: saveWorkout,
   };
 };
-export const saveEX = (saveEx, min, set, reps) => {
+export const saveRandom = (saveRandom) => {
+  return {
+    type: "SAVE_RANDOM",
+    payload: saveRandom,
+  };
+};
+export const saveEX = (saveEx, min, set, reps, count, date) => {
   return {
     type: "SAVE_EX",
-    payload: { ex: saveEx, min: min, set: set, reps: reps },
+    payload: {
+      ex: saveEx,
+      min: min,
+      set: set,
+      reps: reps,
+      count: count,
+      date: date,
+    },
   };
 };

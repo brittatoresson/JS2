@@ -17,6 +17,8 @@ function App() {
   const API = "http://localhost:6001/data.json";
   const [state, setState] = useState([]);
   const [start, setStart] = useState(false);
+
+  //Fetcha API
   async function fetchFunction() {
     try {
       const response = await fetch(API);
@@ -32,11 +34,11 @@ function App() {
     payload: state,
   });
   // dispatch(fetchAction(state));
+
+  //Starta appen, kalla på fetchfunktionen
   function startApp() {
     fetchFunction();
     setStart(true);
-
-    console.log("start");
   }
   return (
     <main>

@@ -2,9 +2,6 @@ let initState = [
   {
     id: "1",
     name: "deadlift",
-    // weight: 0,
-    // set: 0,
-    // reps: 0,
   },
 ];
 

@@ -13,10 +13,6 @@ const saveExReducer = (state = saveEX, action) => {
     case "SAVE_EX":
       return action.payload;
       break;
-    case "SAVE_WORKOUT":
-      return action.payload;
-      // return [...state, action.payload];
-      break;
     default:
       return state;
   }
