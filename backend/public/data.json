@@ -21,13 +21,13 @@
   },
   {
     "id": "6",
-    "name": "Back squat lunges",
+    "name": "Barbell lunges",
     "weight": 0,
     "alternative": "goblet squat"
   },
   {
     "id": "7",
-    "name": "Front squat lunges",
+    "name": "Front rack lunges",
     "weight": 0,
     "alternative": "goblet squat"
   },
@@ -46,7 +46,7 @@
   { "id": "10", "name": "Jerk", "weight": 0, "alternative": "db push press" },
   {
     "id": "11",
-    "name": "Front rack lunges",
+    "name": "Back squat",
     "weight": 0,
     "alternative": "goblet squat"
   },

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import Timer from "./Timer";
+import Timer from "../Components/Timer";
 import { saveRandom } from "../Actions/exerciseAction";
 
 let numberOfExercise;

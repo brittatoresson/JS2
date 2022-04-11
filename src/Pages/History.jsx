@@ -15,8 +15,7 @@ function History() {
   return (
     <section id="history" className="scroller">
       <h1>History</h1>
-
-      {!date && !randomWod ? <p>No history</p> : null}
+      {!date && randomWod.length === 0 ? <p>No history</p> : null}
       {date
         ? savedWorkout.map((item, i) => {
             return (
@@ -37,7 +36,7 @@ function History() {
           })
         : null}
 
-      <h3> Saved Random Wod: </h3>
+      {randomWod.length > 0 ? <h3> Saved Random Wod: </h3> : null}
       {randomWod ? randomWod.map((item, i) => <p key={i}> * {item}</p>) : null}
     </section>
   );

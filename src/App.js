@@ -1,13 +1,13 @@
 import "./App.css";
 import FilterInput from "./Components/FilterInput.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAction } from "./Actions/exerciseAction";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AddExercise from "./Components/AddExercise";
 import Home from "./Pages/Home";
 import History from "./Pages/History";
-import RandomWod from "./Components/RandomWod";
+import RandomWod from "./Pages/RandomWod";
 
 const redux = require("redux");
 
@@ -28,11 +28,11 @@ function App() {
     }
   }
 
-  //Starta appen, kalla på fetchfunktionen
-  function startApp() {
+  //Kalla på fetchfunktionen vid klick på start
+  useEffect(() => {
     fetchFunction();
-    setStart(true);
-  }
+  }, [start]);
+
   return (
     <main>
       <BrowserRouter>
@@ -44,7 +44,7 @@ function App() {
           <Route path="/random" element={<RandomWod />}></Route>
         </Routes>
         {!start ? (
-          <button onClick={startApp} id="startBtn">
+          <button onClick={(e) => setStart(!start)} id="startBtn">
             START
           </button>
         ) : (
