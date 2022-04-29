@@ -1,8 +1,6 @@
-#Examination JS 2. 2022
+# Examination JavaScript 2. 2022
 
-
-
-**Inlämningsuppgift - träningsapp**
+**Inlämningsuppgift - Träningsapp**
 
 Tekniker:
 React
