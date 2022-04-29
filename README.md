@@ -1,5 +1,7 @@
 **JS2-projekt-2**
 
+**Inlämningsuppgift - träningsapp**
+
 Tekniker:
 React
 Redux
