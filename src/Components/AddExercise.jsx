@@ -33,18 +33,20 @@ function AddExercise() {
       dispatch(addEx({ name: newEx, id: id++, equipment: equipment }));
     }
   };
+
   //Uppdaterar listan med övningar när en övning tas bort
   function removeExercise(id) {
     if (id) {
       //Reset remove vid varje klick
       setRemove([]);
       updateState.forEach((element) => {
-        if (!element.id.toString().includes(id.id)) {
+        if (element.id !== id.id) {
           setRemove((prev) => [...prev, element]);
         }
       });
     }
   }
+
   // dispatch om listan med remove är större än 1
   if (remove.length > 1) {
     dispatch(removeEx(remove));
