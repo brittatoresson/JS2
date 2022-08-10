@@ -11,6 +11,8 @@ import RandomWod from "./Pages/RandomWod";
 
 const redux = require("redux");
 
+//PUSH TILL GITHUB
+
 function App() {
   const dispatch = useDispatch();
   const API = "http://localhost:6002/data.json";

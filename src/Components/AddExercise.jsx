@@ -11,6 +11,7 @@ function AddExercise() {
   let id = updateState.length;
 
   //Funktion som hämtar data från inputfält
+
   function handleChange(ex, equipment) {
     if (ex) {
       setNewEx(ex);
@@ -75,7 +76,7 @@ function AddExercise() {
         {updateState.map((item, i) => (
           <article key={i}>
             <li onClick={() => removeExercise({ id: item.id })}>
-              {item.name}{" "}
+              {item.name}
               {item.equipment ? "Equipment: " + item.equipment : null}
             </li>
           </article>
